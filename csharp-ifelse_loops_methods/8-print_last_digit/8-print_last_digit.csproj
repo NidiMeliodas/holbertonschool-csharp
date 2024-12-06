@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>_8-print_last_digit</RootNamespace>
   </PropertyGroup>
 
 </Project>
