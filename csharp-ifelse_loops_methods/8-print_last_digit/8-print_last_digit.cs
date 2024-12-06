@@ -4,11 +4,10 @@ class Number
 {
 	public static int PrintLastDigit(int number)
 	{
-		int lastNumber = number % 10;
-		if (lastNumber < 0)
-			lastNumber *= -1;
-		Console.Write(lastNumber);
-
-		return lastNumber;
+		int lastDig = number % 10;
+		if (lastDig < 0)
+			lastDig = lastDig * -1;
+		Console.Write(lastDig);
+		return lastDig;
 	}
 }
