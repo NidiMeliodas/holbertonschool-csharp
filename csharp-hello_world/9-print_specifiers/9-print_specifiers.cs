@@ -6,7 +6,7 @@ class Program
 	{
 		double percent = .7553;
 		double currency = 98765.4321;
-		CultureInfo culture = new CultureInfo("en-US");
-		Console.WriteLine(string.Format("Percent: {0:P2} \nCurrency: {1:C2}\n", percent, currency));
+		Console.WriteLine("Percent: " + percent.ToString("P2", CultureInfo.CreateSpecificCulture("en-US")));
+		Console.WriteLine("Currency: " + currency.ToString("C", CultureInfo.CreateSpecificCulture("en-US")));
 	}
 }
