@@ -17,14 +17,14 @@
           "/home/nidi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "netcoreapp6"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
-            "targetAlias": "net6.0",
+            "targetAlias": "netcoreapp6",
             "projectReferences": {}
           }
         },
@@ -36,7 +36,7 @@
       },
       "frameworks": {
         "net6.0": {
-          "targetAlias": "net6.0",
+          "targetAlias": "netcoreapp6",
           "imports": [
             "net461",
             "net462",
