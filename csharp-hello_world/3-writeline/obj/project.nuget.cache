@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "WDrXuQ/l6cf5QNyfeXeiM5pfFGp5mMnegr1ImEoUHNEGkvcTUzXQxckPYSB0dNWc4a1Ghxh/JMab7pvVNXyYXg==",
+  "dgSpecHash": "QbrlxBjzMS01HWBRP5bCcJuWkbM0NO9ziPnu9beQ+zq543j2PDQkR67DY4oAGh7MoQI4O8DUq7R8v8kcPklK7g==",
   "success": true,
   "projectFilePath": "/home/nidi/holbertonschool-csharp/csharp-hello_world/3-writeline/3-writeline.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/nidi/.nuget/packages/microsoft.netcore.app/2.0.0/microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "/home/nidi/.nuget/packages/microsoft.netcore.dotnetapphost/2.0.0/microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "/home/nidi/.nuget/packages/microsoft.netcore.dotnethostpolicy/2.0.0/microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "/home/nidi/.nuget/packages/microsoft.netcore.dotnethostresolver/2.0.0/microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "/home/nidi/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/home/nidi/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
