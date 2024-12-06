@@ -1,7 +1,6 @@
 *obj
 *bin
 *.json
-*.cs
 *.csproj
 holbertonschool-csharp.sln
 
