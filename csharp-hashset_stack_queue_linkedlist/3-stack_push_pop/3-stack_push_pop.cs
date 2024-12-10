@@ -23,37 +23,14 @@ public class MyStack
         bool containsSearch = aStack.Contains(search);
         Console.WriteLine($"Stack contains {search}: {containsSearch}");
 
+        // Use a single Pop() to remove all items up to and including search
         if (containsSearch)
         {
-            // Use a single Pop() to get all items in reverse order
-            List<string> reversedItems = new List<string>();
-            string poppedItem = aStack.Pop(); // Single Pop() operation
+            List<string> tempList = new List<string>();
 
-            // Store the popped item and all remaining elements
-            reversedItems.Add(poppedItem);
-            while (aStack.Count > 0)
-            {
-                reversedItems.Add(aStack.Peek()); // Look at the next item
-                aStack.Pop(); // We already popped once, just iterating now
-            }
+            // Pop only once and add it to the temporary list
+            string poppedItem = aStack.Pop();
+            tempList.Add(poppedItem);
 
-            // Rebuild the stack without items up to and including 'search'
-            bool found = false;
-            for (int i = reversedItems.Count - 1; i >= 0; i--)
-            {
-                if (reversedItems[i] == search && !found)
-                {
-                    found = true; // Skip the 'search' item
-                    continue;
-                }
-                aStack.Push(reversedItems[i]);
-            }
-        }
-
-        // Add the new item to the stack
-        aStack.Push(newItem);
-
-        // Return the updated stack
-        return aStack;
-    }
-}
+            // Transfer the remaining stack elements to tempList using Peek()
+            while (a)
