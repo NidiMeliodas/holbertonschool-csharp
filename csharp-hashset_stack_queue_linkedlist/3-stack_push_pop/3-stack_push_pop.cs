@@ -1,39 +1,38 @@
 using System;
 using System.Collections.Generic;
 
-public class MyStack
+class MyStack
 {
     public static Stack<string> Info(Stack<string> aStack, string newItem, string search)
     {
-        // Print the number of items in the stack
         Console.WriteLine($"Number of items: {aStack.Count}");
 
-        // Check if the stack is empty
-        if (aStack.Count == 0)
+        if (aStack.Count != 0)
         {
-            Console.WriteLine("Stack is empty");
+            Console.WriteLine($"Top item: {aStack.Peek()}");
         }
         else
         {
-            // Print the top item of the stack without removing it
-            Console.WriteLine($"Top item: {aStack.Peek()}");
+            Console.WriteLine("Stack is empty");
         }
 
-        // Check if the stack contains the search item
-        bool containsSearch = aStack.Contains(search);
-        Console.WriteLine($"Stack contains {search}: {containsSearch}");
-
-        // Use a single  to remove all items up to and including search
-        if (containsSearch)
+        if (aStack.Contains(search))
         {
-            List<string> tempList = new List<string>();
+            Console.WriteLine($"Stack contains \"{search}\": {aStack.Contains(search)}");
 
-            //  only once and add it to the temporary list
-            string poppedItem = aStack.Pop();
-            tempList.Add(poppedItem);
+            while (aStack.Contains(search))
+            {
+                aStack.Pop();
 
-            // Transfer the remaining stack elements to tempList using Peek()
-            while (a)
+            }
         }
+
+        if (aStack.Contains(search) == false)
+        {
+            aStack.Push(newItem);
+        }
+
+        return aStack;
+
     }
 }
