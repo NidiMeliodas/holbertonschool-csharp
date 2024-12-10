@@ -34,3 +34,6 @@ public class MyStack
 
             // Transfer the remaining stack elements to tempList using Peek()
             while (a)
+        }
+    }
+}
