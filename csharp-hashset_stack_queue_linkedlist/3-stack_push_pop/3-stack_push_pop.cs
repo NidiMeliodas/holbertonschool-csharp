@@ -16,23 +16,25 @@ class MyStack
             Console.WriteLine("Stack is empty");
         }
 
+        // Check if the stack contains the search item
         if (aStack.Contains(search))
         {
             Console.WriteLine($"Stack contains \"{search}\": {aStack.Contains(search)}");
 
+            // Pop elements until the search item is removed
             while (aStack.Contains(search))
             {
                 aStack.Pop();
-
             }
         }
 
-        if (aStack.Contains(search) == false)
+        // If search item is not in the stack anymore, push new item
+        if (!aStack.Contains(search))
         {
+            Console.WriteLine($"Pushing \"{newItem}\" onto the stack.");
             aStack.Push(newItem);
         }
 
         return aStack;
-
     }
 }
