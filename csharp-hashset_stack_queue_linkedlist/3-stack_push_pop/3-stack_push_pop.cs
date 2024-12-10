@@ -23,12 +23,12 @@ public class MyStack
         bool containsSearch = aStack.Contains(search);
         Console.WriteLine($"Stack contains {search}: {containsSearch}");
 
-        // Use a single Pop() to remove all items up to and including search
+        // Use a single  to remove all items up to and including search
         if (containsSearch)
         {
             List<string> tempList = new List<string>();
 
-            // Pop only once and add it to the temporary list
+            //  only once and add it to the temporary list
             string poppedItem = aStack.Pop();
             tempList.Add(poppedItem);
 
