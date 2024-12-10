@@ -1,12 +1,23 @@
 using System;
+using System.Collections.Generic;
 
-class MainClass
+class Program
 {
+    // Main - entry point
     static void Main(string[] args)
     {
-        // This is a sample main class for task 8
-        // Replace with your task-specific code
+        LinkedList<int> myLList = new LinkedList<int>();
 
-        Console.WriteLine("Welcome to task 8!");
+        myLList.AddLast(1);
+        myLList.AddLast(4);
+        myLList.AddLast(9);
+        myLList.AddLast(16);
+        myLList.AddLast(25);
+        myLList.AddLast(36);
+        myLList.AddLast(49);
+
+        Console.WriteLine("Node Position: " + LList.FindNode(myLList, 16));
+        Console.WriteLine("Node Position: " + LList.FindNode(myLList, 1));
+        Console.WriteLine("Node Position: " + LList.FindNode(myLList, -10));
     }
 }

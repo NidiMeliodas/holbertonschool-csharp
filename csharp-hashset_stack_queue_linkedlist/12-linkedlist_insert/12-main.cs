@@ -1,12 +1,37 @@
 using System;
+using System.Collections.Generic;
 
-class MainClass
+class Program
 {
+    // Main - entry point
     static void Main(string[] args)
     {
-        // This is a sample main class for task 12
-        // Replace with your task-specific code
+        LinkedList<int> myLList = new LinkedList<int>();
+        LinkedListNode<int> current;
 
-        Console.WriteLine("Welcome to task 12!");
+        myLList.AddLast(1);
+        myLList.AddLast(4);
+        myLList.AddLast(9);
+        myLList.AddLast(16);
+        myLList.AddLast(25);
+        myLList.AddLast(36);
+        myLList.AddLast(49);
+
+        current = myLList.First;
+        while (current != null)
+        {
+            Console.WriteLine(current.Value);
+            current = current.Next;
+        }
+
+        Console.WriteLine("------------------");
+        LList.Insert(myLList, 21);
+
+        current = myLList.First;
+        while (current != null)
+        {
+            Console.WriteLine(current.Value);
+            current = current.Next;
+        }
     }
 }

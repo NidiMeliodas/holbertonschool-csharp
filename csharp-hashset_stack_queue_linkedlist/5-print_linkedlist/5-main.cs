@@ -1,12 +1,18 @@
 using System;
+using System.Collections.Generic;
 
-class MainClass
+class Program
 {
+    // Main - entry point
     static void Main(string[] args)
     {
-        // This is a sample main class for task 5
-        // Replace with your task-specific code
+        LinkedList<int> llist;
+        int size;
 
-        Console.WriteLine("Welcome to task 5!");
+        size = 8;
+
+        llist = LList.CreatePrint(size);
+        Console.WriteLine("-------------");
+        Console.WriteLine("Linked List Length: " + llist.Count);
     }
 }

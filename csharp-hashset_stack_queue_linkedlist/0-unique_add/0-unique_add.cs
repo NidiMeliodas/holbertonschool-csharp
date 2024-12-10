@@ -1,9 +1,27 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+class List
 {
-    static void Main(string[] args)
+    // Method to sum unique integers in a given list
+    public static int Sum(List<int> myList)
     {
-        Console.WriteLine("Hello from 0-unique_add!");
+        // Create a HashSet to store unique integers
+        HashSet<int> uniqueIntegers = new HashSet<int>();
+
+        // Add each integer from myList to the HashSet (duplicates will be ignored)
+        foreach (int num in myList)
+        {
+            uniqueIntegers.Add(num);
+        }
+
+        // Return the sum of unique integers in the HashSet
+        int sum = 0;
+        foreach (int num in uniqueIntegers)
+        {
+            sum += num;
+        }
+
+        return sum;
     }
 }

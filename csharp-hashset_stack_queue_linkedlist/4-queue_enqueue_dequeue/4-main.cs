@@ -1,12 +1,30 @@
 using System;
+using System.Collections.Generic;
 
-class MainClass
+class Program
 {
+    // Main - entry point
     static void Main(string[] args)
     {
-        // This is a sample main class for task 4
-        // Replace with your task-specific code
+        Queue<string> aQueue = new Queue<string>();
 
-        Console.WriteLine("Welcome to task 4!");
+        aQueue.Enqueue("C");
+        aQueue.Enqueue("HTML");
+        aQueue.Enqueue("Javascript");
+        aQueue.Enqueue("Python");
+        aQueue.Enqueue("React");
+        aQueue.Enqueue("Ruby");
+
+        foreach (string item in aQueue)
+            Console.WriteLine(item);
+
+        Console.WriteLine("------");
+
+        MyQueue.Info(aQueue, "C#", "Javascript");
+
+        Console.WriteLine("------");
+
+        foreach (string item in aQueue)
+            Console.WriteLine(item);
     }
 }

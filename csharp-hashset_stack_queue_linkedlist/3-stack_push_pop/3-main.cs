@@ -1,12 +1,30 @@
 using System;
+using System.Collections.Generic;
 
-class MainClass
+class Program
 {
+    // Main - entry point
     static void Main(string[] args)
     {
-        // This is a sample main class for task 3
-        // Replace with your task-specific code
+        Stack<string> aStack = new Stack<string>();
 
-        Console.WriteLine("Welcome to task 3!");
+        aStack.Push("C");
+        aStack.Push("HTML");
+        aStack.Push("Javascript");
+        aStack.Push("Python");
+        aStack.Push("React");
+        aStack.Push("Ruby");
+
+        foreach (string item in aStack)
+            Console.WriteLine(item);
+
+        Console.WriteLine("------");
+
+        MyStack.Info(aStack, "C#", "Javascript");
+
+        Console.WriteLine("------");
+
+        foreach (string item in aStack)
+            Console.WriteLine(item);
     }
 }
