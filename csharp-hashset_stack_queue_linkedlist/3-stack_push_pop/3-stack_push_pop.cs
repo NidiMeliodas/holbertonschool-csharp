@@ -23,26 +23,22 @@ public class MyStack
         bool containsSearch = aStack.Contains(search);
         Console.WriteLine($"Stack contains {search}: {containsSearch}");
 
-        // If the stack contains the search item, remove items up to and including search
         if (containsSearch)
         {
+            // Single Pop() operation
+            string poppedItem = aStack.Pop();
+
+            // Rebuild stack without items up to and including 'search'
             Stack<string> tempStack = new Stack<string>();
-            string poppedItem = null;
 
-            // Use only one Pop() call
-            do
+            // Push only items we want to keep onto the temp stack
+            while (poppedItem != search && aStack.Count > 0)
             {
-                poppedItem = aStack.Pop(); // Single Pop() call
                 tempStack.Push(poppedItem);
-            } while (poppedItem != search && aStack.Count > 0);
-
-            // Restore the remaining items back into the original stack
-            while (tempStack.Count > 0 && tempStack.Peek() != search)
-            {
-                tempStack.Pop(); // Discard items up to the search element
+                poppedItem = aStack.Pop(); // One Pop is happening here
             }
-            tempStack.Pop(); // Discard the search element itself
 
+            // Re-add elements back to the original stack
             while (tempStack.Count > 0)
             {
                 aStack.Push(tempStack.Pop());
