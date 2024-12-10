@@ -21,7 +21,7 @@ class MyStack
         {
             Console.WriteLine($"Stack contains \"{search}\": {aStack.Contains(search)}");
 
-            // Pop elements until the search item is removed
+            // P0p elements until the search item is removed
             while (aStack.Contains(search))
             {
                 aStack.Pop();
