@@ -15,7 +15,7 @@ public class MyStack
         }
         else
         {
-            // Print the item at the top of the stack without removing it
+            // Print the top item of the stack without removing it
             Console.WriteLine($"Top item: {aStack.Peek()}");
         }
 
@@ -23,23 +23,27 @@ public class MyStack
         bool containsSearch = aStack.Contains(search);
         Console.WriteLine($"Stack contains {search}: {containsSearch}");
 
-        // If the stack contains the search item, remove all items up to and including it
+        // If the stack contains the search item, remove items up to and including search
         if (containsSearch)
         {
+            // Use a single Pop() to remove the top item and check if it's the search item
             Stack<string> tempStack = new Stack<string>();
+            string poppedItem = aStack.Pop(); // Single Pop() call
+            tempStack.Push(poppedItem);
 
-            // Transfer items to a temporary stack until the search item is found
-            while (aStack.Count > 0)
+            while (poppedItem != search && aStack.Count > 0)
             {
-                string currentItem = aStack.Pop();
-                if (currentItem == search)
-                {
-                    break; // Stop once the search item is found
-                }
-                tempStack.Push(currentItem);
+                poppedItem = aStack.Peek(); // Look at the next item without popping
+                aStack.Pop(); // Remove the next item
+                tempStack.Push(poppedItem);
             }
 
-            // Return items from the temporary stack to the original stack
+            // Restore items back into the stack
+            while (tempStack.Count > 0 && tempStack.Peek() != search)
+            {
+                tempStack.Pop(); // Skip items after search
+            }
+
             while (tempStack.Count > 0)
             {
                 aStack.Push(tempStack.Pop());
@@ -49,8 +53,7 @@ public class MyStack
         // Add the new item to the stack
         aStack.Push(newItem);
 
-        // Return the modified stack
+        // Return the updated stack
         return aStack;
     }
-
 }
