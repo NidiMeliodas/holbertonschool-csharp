@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+class LList
 {
-    static void Main(string[] args)
+    public static LinkedListNode<int> Add(LinkedList<int> myLList, int n)
     {
-        Console.WriteLine("Hello from 7-linkedlist_add!");
+        // Add the new node at the beginning of the LinkedList
+        myLList.AddFirst(n);
+
+        // Return the newly added node
+        return myLList.First;
     }
 }
