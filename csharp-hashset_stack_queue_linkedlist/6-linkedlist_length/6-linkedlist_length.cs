@@ -1,9 +1,17 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+class LList
 {
-    static void Main(string[] args)
+    public static int Length(LinkedList<int> myLList)
     {
-        Console.WriteLine("Hello from 6-linkedlist_length!");
+        int count = 0;
+
+        foreach (int item in myLList)
+        {
+            count++;
+        }
+
+        return count;
     }
 }
