@@ -1,9 +1,17 @@
 using System;
+using System.Collections.Generic;
 
-class Program
+public class LList
 {
-    static void Main(string[] args)
+    public static int FindNode(LinkedList<int> myLList, int value)
     {
-        Console.WriteLine("Hello from 8-linkedlist_find!");
+        int index = 0;
+        foreach (int item in myLList)
+        {
+            if (item == value)
+                return index;
+            index++;
+        }
+        return -1; // Value not found
     }
 }
