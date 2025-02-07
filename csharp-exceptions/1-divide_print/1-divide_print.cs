@@ -5,25 +5,18 @@ class Int
 	public static void divide(int a, int b)
 	{
 		int result = 0;
-		bool divisionSuccessful = false;
-
 		try
 		{
 			result = a / b;
-			divisionSuccessful = true;
 		}
 		catch (DivideByZeroException)
 		{
 			Console.WriteLine("Cannot divide by zero");
-		}
-		catch (Exception ex)
-		{
-			Console.WriteLine($"Unexpected error: {ex.Message}");
+			return;
 		}
 		finally
 		{
-			// Display the result if successful; otherwise, show a default value of 0
-			Console.WriteLine($"{a} / {b} = {(divisionSuccessful ? result : 0)}");
+			Console.WriteLine("{0} / {1} = {2}", a, b, result);
 		}
 	}
 }
