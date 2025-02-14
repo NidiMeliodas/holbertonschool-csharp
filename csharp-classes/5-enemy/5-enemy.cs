@@ -1,64 +1,45 @@
 namespace Enemies
 {
-	/// <summary>
-	/// Represents a Zombie enemy.
-	/// </summary>
 	public class Zombie
 	{
-		/// <summary>
-		/// Health of the Zombie.
-		/// </summary>
+		// Private fields
 		private int health;
+		private string name;
 
-		/// <summary>
-		/// Name of the Zombie.
-		/// </summary>
-		private string name = "(No name)";
+		// Public constructors
+		public Zombie()
+		{
+			health = 0;
+			name = "(No name)";
+		}
 
-		/// <summary>
-		/// Gets or sets the name of the Zombie.
-		/// </summary>
+		public Zombie(int value)
+		{
+			if (value >= 0)
+			{
+				health = value;
+			}
+			else
+			{
+				throw new ArgumentException("Health cannot be less than 0.");
+			}
+			name = "(No name)";
+		}
+
+		// Public property for Name
 		public string Name
 		{
 			get { return name; }
 			set { name = value; }
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Zombie"/> class with health set to 0.
-		/// </summary>
-		public Zombie()
-		{
-			health = 0;
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Zombie"/> class with a specified health value.
-		/// </summary>
-		/// <param name="value">Initial health value.</param>
-		/// <exception cref="ArgumentException">Thrown when value is less than 0.</exception>
-		public Zombie(int value)
-		{
-			if (value < 0)
-			{
-				throw new ArgumentException("Health must be greater than or equal to 0");
-			}
-			health = value;
-		}
-
-		/// <summary>
-		/// Returns the health value of the Zombie.
-		/// </summary>
-		/// <returns>The health of the Zombie.</returns>
+		// Public method to get the health
 		public int GetHealth()
 		{
 			return health;
 		}
 
-		/// <summary>
-		/// Returns a string representation of the Zombie object.
-		/// </summary>
-		/// <returns>Formatted string with name and health.</returns>
+		// Override ToString method
 		public override string ToString()
 		{
 			return $"Zombie Name: {name} / Total Health: {health}";
