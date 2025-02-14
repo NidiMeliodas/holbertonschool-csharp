@@ -1,45 +1,37 @@
+using System;
+
 namespace Enemies
 {
 	public class Zombie
 	{
-		// Private fields
 		private int health;
-		private string name;
+		private string name = "(No name)";
 
-		// Public constructors
 		public Zombie()
 		{
 			health = 0;
-			name = "(No name)";
 		}
 
 		public Zombie(int value)
 		{
-			if (value >= 0)
+			if (value < 0)
 			{
-				health = value;
+				throw new ArgumentException("Health must be greater than or equal to 0");
 			}
-			else
-			{
-				throw new ArgumentException("Health cannot be less than 0.");
-			}
-			name = "(No name)";
+			health = value;
 		}
 
-		// Public property for Name
 		public string Name
 		{
 			get { return name; }
 			set { name = value; }
 		}
 
-		// Public method to get the health
 		public int GetHealth()
 		{
 			return health;
 		}
 
-		// Override ToString method
 		public override string ToString()
 		{
 			return $"Zombie Name: {name} / Total Health: {health}";
