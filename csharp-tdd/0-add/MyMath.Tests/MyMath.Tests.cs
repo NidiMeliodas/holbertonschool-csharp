@@ -1,23 +1,33 @@
 using NUnit.Framework;
 using MyMath;
-using System.Collections.Generic;
 
 namespace MyMath.Tests
 {
     [TestFixture]
-    public class Tests
+    public class OperationsTests
     {
         [Test]
-        public void TestAdd()
+        public void Add_TwoPositiveNumbers_ReturnsCorrectSum()
         {
             Assert.AreEqual(5, Operations.Add(2, 3));
         }
+
         [Test]
-        public void TestDivide()
+        public void Add_PositiveAndNegativeNumber_ReturnsCorrectSum()
         {
-            int[,] matrix = { { 4, 8 }, { 16, 20 } };
-            int[,] expected = { { 2, 4 }, { 8, 10 } };
-            CollectionAssert.AreEqual(expected, Matrix.Divide(matrix, 2));
+            Assert.AreEqual(-1, Operations.Add(2, -3));
+        }
+
+        [Test]
+        public void Add_TwoNegativeNumbers_ReturnsCorrectSum()
+        {
+            Assert.AreEqual(-5, Operations.Add(-2, -3));
+        }
+
+        [Test]
+        public void Add_ZeroAndNumber_ReturnsSameNumber()
+        {
+            Assert.AreEqual(7, Operations.Add(0, 7));
         }
     }
 }
