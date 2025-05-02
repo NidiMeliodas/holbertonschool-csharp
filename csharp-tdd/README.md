@@ -1,50 +1,111 @@
-# C# Unit Testing Project
+# C# - Test Driven Development
 
-## Learning Objectives
+This project introduces **Test-Driven Development (TDD)** in C# using **NUnit**.  
+It involves creating class libraries and unit tests following the TDD approach and .NET conventions.
 
-At the end of this project, you should be able to explain the following concepts without external help:
+---
 
-### General
+## 📚 Resources
+
+- Unit Testing Tutorial for C# Developers (0:00 to 12:16)
+- TDD Basics with C#
+- Unit Testing C# with NUnit and .NET Core
+- NUnit Documentation
+- NUnit.Framework Documentation
+- NUnit Cheat Sheet
+- When to use static classes in C#
+- Target .NET Frameworks
+
+---
+
+## 🎯 Learning Objectives
+
+At the end of this project, you should be able to explain:
+
 - What are solutions in VSCode
 - How solutions differ from projects in VSCode
 - What is a class library
 - What is a unit test
-- Benefits of unit testing
-- How to create and run tests using NUnit
-- The Arrange, Act, Assert methodology
-- How to effectively name unit tests
-- Utilizing the TDD (Test-Driven Development) approach
-- How to consider edge cases
+- The benefits of unit testing
+- How to create and run tests using **NUnit**
+- The **Arrange, Act, Assert** methodology
+- How to name your unit tests clearly and effectively
+- How to apply the **TDD** approach
+- How to identify and test edge cases
 
-## Requirements
+---
 
-### C# Tasks
-- Allowed editor: Visual Studio Code
-- All files will be compiled on **Ubuntu 20.04 LTS** using `dotnet`
-- A `README.md` file at the root of the project folder is **mandatory**
-- Default `Program.cs` files should be renamed as specified in each task
-- Each C# task requires its own folder and `.sln` file
-- Push all task folders to GitHub with correct task names
-- Do **not** push `obj/` or `bin/` folders
-- Example `main.cs` files can be used for testing but should **not** be pushed to GitHub
-- Public classes and their members must include **XML documentation tags**
-- Private classes and members should be documented but **without XML documentation tags**
+## ✅ Requirements
 
-### C# Tests
-- Allowed editor: Visual Studio Code
-- All tests must be placed inside a separate folder, named as specified in each task
-- All test files will be executed using `dotnet test`
-- **Collaborate** on tests to ensure all edge cases are covered
+### General
 
-## Project Structure
+- Editor: **Visual Studio Code**
+- OS: **Ubuntu 20.04 LTS**
+- Language: **C#**
+- A `README.md` at the root of the project is mandatory
+- All C# files must be renamed from `Program.cs` to the task's given name
+- Each task requires its own folder and `.sln` file
+- Do not push `bin/` or `obj/` folders
+- Example `main.cs` files used for testing should not be pushed
+- All public classes and members must have **XML documentation**
+- All private classes and members should be documented (non-XML)
 
-Each task consists of:
-- **One class library** (solving the task)
-- **One test library** (to test the class library)
+---
 
-### Steps to Set Up Each Task
+## ✅ Requirements - C# Tests
 
-1. Create a **task directory** (e.g., `0-add`)
-2. Inside the directory, run:
-   ```sh
-   dotnet new sln
+- Tests must be in a **separate folder** named appropriately
+- Tests are executed using:
+  ```bash
+  dotnet test
+
+/0-add
+├── 0-add.sln
+├── /MyMath
+│   ├── MyMath.cs
+│   └── MyMath.csproj
+└── /MyMath.Tests
+    ├── MyMath.Tests.cs
+    └── MyMath.Tests.csproj
+🛠️ Steps to Set Up Each Task
+Create a task directory:
+
+bash
+mkdir 0-add && cd 0-add
+dotnet new sln
+Create class library:
+
+bash
+mkdir MyMath && cd MyMath
+dotnet new classlib
+mv Class1.cs MyMath.cs
+Enable XML docs in MyMath.csproj:
+
+xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+</PropertyGroup>
+Add class library to solution:
+
+bash
+cd ..
+dotnet sln add MyMath/MyMath.csproj
+Create test library:
+
+bash
+mkdir MyMath.Tests && cd MyMath.Tests
+dotnet new nunit
+mv UnitTest1.cs MyMath.Tests.cs
+dotnet add reference ../MyMath/MyMath.csproj
+Add test project to solution:
+
+bash
+cd ..
+dotnet sln add MyMath.Tests/MyMath.Tests.csproj
+(Optional) Add console app to run manually:
+
+bash
+mkdir MyMath.Console && cd MyMath.Console
+dotnet new console
+dotnet add reference ../MyMath/MyMath.csproj

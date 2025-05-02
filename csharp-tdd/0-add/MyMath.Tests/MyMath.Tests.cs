@@ -3,8 +3,7 @@ using MyMath;
 
 namespace MyMath.Tests
 {
-    [TestFixture]
-    public class OperationsTests
+    public class MyMathTests
     {
         [Test]
         public void Add_TwoPositiveNumbers_ReturnsCorrectSum()
@@ -13,9 +12,9 @@ namespace MyMath.Tests
         }
 
         [Test]
-        public void Add_PositiveAndNegativeNumber_ReturnsCorrectSum()
+        public void Add_NegativeAndPositiveNumber_ReturnsCorrectSum()
         {
-            Assert.AreEqual(-1, Operations.Add(2, -3));
+            Assert.AreEqual(1, Operations.Add(-2, 3));
         }
 
         [Test]
@@ -27,7 +26,7 @@ namespace MyMath.Tests
         [Test]
         public void Add_ZeroAndNumber_ReturnsSameNumber()
         {
-            Assert.AreEqual(7, Operations.Add(0, 7));
+            Assert.AreEqual(4, Operations.Add(0, 4));
         }
     }
 }

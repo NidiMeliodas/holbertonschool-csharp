@@ -1,15 +1,18 @@
-using System;
+﻿using System;
 
 namespace MyMath
 {
-    public class Operations
-    {
-        /// <summary>
-        /// Adds two integers and returns the sum.
-        /// </summary>
-        public static int Add(int a, int b)
-        {
-            return a + b;
-        }
-    }
+	/// <summary>
+	/// Provides math operations
+	/// </summary>
+	public class Operations
+	{
+		/// <summary>
+		/// Returns the sum of two integers
+		/// </summary>
+		public static int Add(int a, int b)
+		{
+			return a + b;
+		}
+	}
 }
