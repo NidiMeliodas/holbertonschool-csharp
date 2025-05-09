@@ -1,17 +1,17 @@
 using System;
 
 /// <summary>
-/// Contains method to check if an object is of type int.
+/// Class to check if an object is of type int.
 /// </summary>
-public class Obj
-{
-    /// <summary>
-    /// Determines whether the specified object is of type int.
-    /// </summary>
-    /// <param name="obj">The object to check.</param>
-    /// <returns>true if obj is an int; otherwise, false.</returns>
-    public static bool IsOfTypeInt(object obj)
+    class Obj
     {
-        return obj is int;
+        /// <summary>
+        /// Check if an object is of type int.
+        /// </summary>
+        /// <param name="obj">object to check</param>
+        /// <returns>True if in,otherwise false</returns>
+        public static bool IsOfTypeInt(object obj)
+        {
+            return obj is int;
+        }
     }
-}
