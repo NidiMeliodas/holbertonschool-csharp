@@ -3,7 +3,7 @@ using System;
 class MatrixMath
 {
     /// <summary>
-    /// Rotates a 2D square matrix by a given angle in radians.
+    /// Rotates a 2D square matrix by a given angle in radians .
     /// </summary>
     /// <param name="matrix">The 2D square matrix to rotate.</param>
     /// <param name="angle">The rotation angle in radians.</param>
