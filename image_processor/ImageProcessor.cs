@@ -1,37 +1,60 @@
-﻿using System;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Threading.Tasks;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
 
-class ImageProcessor
+public class ImageProcessor
 {
-    public static void Inverse(string[] filenames)
-    {
-        string rootDirectory = Directory.GetCurrentDirectory(); // Ensures images are saved in the root directory
+	public static void Inverse(string[] filenames)
+	{
+		Parallel.ForEach(filenames, filename =>
+		{
+			try
+			{
+				using (Bitmap original = new Bitmap(filename))
+				{
+					int width = original.Width;
+					int height = original.Height;
 
-        Parallel.ForEach(filenames, new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount }, filename =>
-        {
-            try
-            {
-                using (Image<Rgba32> image = Image.Load<Rgba32>(filename))
-                {
-                    image.Mutate(ctx => ctx.Invert()); // Apply color inversion
+					// Invert colors pixel by pixel
+					for (int y = 0; y < height; y++)
+					{
+						for (int x = 0; x < width; x++)
+						{
+							Color pixel = original.GetPixel(x, y);
+							Color inverted = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+							original.SetPixel(x, y, inverted);
+						}
+					}
 
-                    string newFilename = Path.Combine(
-                        rootDirectory, // Save in the correct directory
-                        Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename)
-                    );
+					string ext = Path.GetExtension(filename);
+					string nameWithoutExt = Path.GetFileNameWithoutExtension(filename);
+					string newFileName = $"{nameWithoutExt}_inverse{ext}";
+					string outputPath = Path.Combine(Directory.GetCurrentDirectory(), newFileName);
 
-                    image.Save(newFilename); // Save the new image
-                    Console.WriteLine($"Saved inverted image: {newFilename}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error processing {filename}: {ex.Message}");
-            }
-        });
-    }
+					ImageFormat format = GetImageFormat(ext);
+					original.Save(outputPath, format);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error processing {filename}: {ex.Message}");
+			}
+		});
+	}
+
+	private static ImageFormat GetImageFormat(string extension)
+	{
+		switch (extension.ToLower())
+		{
+			case ".bmp": return ImageFormat.Bmp;
+			case ".gif": return ImageFormat.Gif;
+			case ".jpg":
+			case ".jpeg": return ImageFormat.Jpeg;
+			case ".png": return ImageFormat.Png;
+			case ".tiff": return ImageFormat.Tiff;
+			default: return ImageFormat.Png;
+		}
+	}
 }
